@@ -37,13 +37,11 @@ pragma solidity >=0.7.0 <0.9.0;
 interface IERC20
 {
     // Returns the name of the token - e.g. "Ethereum".
-    // OPTIONAL - This method can be used to improve usability,
-    // but interfaces and other contracts MUST NOT expect these values to be present.
+    // OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.
     function name() external view returns (string memory);
     
     // Returns the symbol of the token. E.g. “ETH”.
-    // OPTIONAL - This method can be used to improve usability,
-    // but interfaces and other contracts MUST NOT expect these values to be present.
+    // OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.
     function symbol() external view returns (string memory);
     
     // Returns the number of decimals the token uses - e.g. 8,

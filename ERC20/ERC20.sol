@@ -69,7 +69,7 @@ contract ERC20 is IERC20
         return mString;
     }
     
-    // Returns the symbol of the token. E.g. “ETH”.
+    // Returns the symbol of the token. E.g. "ETH".
     function symbol() public view virtual override returns (string memory)
     {
         return mSymbol;
