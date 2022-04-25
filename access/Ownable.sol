@@ -53,7 +53,7 @@ abstract contract Ownable
 	// Throws if called by any account other than the owner.
     modifier onlyOwner()
     {
-        if (Context.msgSender() != owner())
+        if ((owner() != address(0)) && (Context.msgSender() != owner()))
         {
             revert("Ownable: caller is not the current owner");
         } _;

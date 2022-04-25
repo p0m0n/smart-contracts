@@ -25,7 +25,7 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 
-import "./Ownable.sol";
+import "../other/Context.sol";
 
 
 /**
@@ -34,7 +34,7 @@ import "./Ownable.sol";
  * 
  * This module is used through inheritance.
  */
-abstract contract Pausable is Ownable
+abstract contract Pausable
 {
     event Paused(address indexed account);
     event Unpaused(address indexed account);
@@ -59,13 +59,21 @@ abstract contract Pausable is Ownable
         } _;
     }
     
-    function pause() public onlyOwner virtual
+    modifier whenNotPaused()
+    {
+        if (paused() != true)
+        {
+            revert("Pausable: not paused");
+        } _;
+    }
+    
+    function _pause() internal virtual
     {
         _paused = true;
         emit Paused(Context.msgSender());
     }
     
-    function unpause() public onlyOwner virtual
+    function _unpause() internal virtual
     {
         _paused = false;
         emit Unpaused(Context.msgSender());

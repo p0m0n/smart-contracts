@@ -25,31 +25,33 @@
 pragma solidity >=0.7.0 <0.9.0;
 
 
-import "./Ownable.sol";
-
-
 /**
  * @title BannedAccount
  * This abstract contract allows you to banned or unbanned unwanted users.
  * 
  * This module is used through inheritance.
  */
-abstract contract BannedAccount is Ownable
+abstract contract BannedAccount
 {
     mapping (address => bool) private mBannedList;
+    
+     // event for EVM logging
+    event Baned(address indexed account);
+    event Unbaned(address indexed account);
+    event ClearBaned(address indexed account, uint256 indexed amount);
     
     function statusAddress(address account) public view returns (bool banned)
     {
         banned = mBannedList[account];
     }
 
-    function bannedAddress(address account) public onlyOwner virtual
+    function _bannedAddress(address account) internal virtual
     {
         mBannedList[account] = true;
         emit Baned(account);
     }
 
-    function unbanedAddress(address account) public onlyOwner virtual
+    function _unbanedAddress(address account) internal virtual
     {
         mBannedList[account] = false;
         emit Unbaned(account);
@@ -57,12 +59,9 @@ abstract contract BannedAccount is Ownable
     
     function TryBannedAddress(address account) internal virtual
     {
-        if (statusAddress(account) != false)
+        if (mBannedList[account] != false)
         {
             revert("BannedAccount: This address is banned.");
         }
     }
-    
-    event Baned(address indexed account);
-    event Unbaned(address indexed account);
 }
