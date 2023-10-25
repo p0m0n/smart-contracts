@@ -39,13 +39,13 @@ abstract contract Ownable
     address private _owner;
     
 	// event for EVM logging
-	event OwnerChange(address indexed oldOwner, address indexed newOwner);
+	event OwnerSet(address indexed oldOwner, address indexed newOwner);
     
 	// The {Ownable} constructor sets the initial {owner} of the contract when deployed.
     constructor()
     {
         _owner = Context.msgSender();
-        emit OwnerChange(address(0), _owner);
+        emit OwnerSet(address(0), _owner);
     }
     
     function owner() public view returns (address) { return _owner; }
@@ -55,14 +55,14 @@ abstract contract Ownable
     {
         if ((owner() != address(0)) && (Context.msgSender() != owner()))
         {
-            revert("Ownable: caller is not the current owner");
+            revert("Caller is not owner");
         } _;
     }
     
 	// Allows you to change the owner of the contract.
     function changeOwner(address newOwner) public onlyOwner virtual
     {
-        emit OwnerChange(_owner, newOwner);
+        emit OwnerSet(_owner, newOwner);
         _owner = newOwner;
     }
 }
