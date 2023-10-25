@@ -26,12 +26,12 @@ pragma solidity >=0.7.0 <0.9.0;
 
 
 /**
- * @title BannedAccount
+ * @title Banneds
  * This abstract contract allows you to banned or unbanned unwanted users.
  * 
  * This module is used through inheritance.
  */
-abstract contract BannedAccount
+abstract contract Banneds
 {
     mapping (address => bool) private mBannedList;
     
@@ -61,7 +61,7 @@ abstract contract BannedAccount
     {
         if (mBannedList[account] != false)
         {
-            revert("BannedAccount: This address is banned.");
+            revert("Banneds: This address is banned.");
         }
     }
 }
