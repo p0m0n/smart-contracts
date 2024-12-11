@@ -30,20 +30,50 @@ pragma solidity >=0.8.0 <0.9.0;
  */
 library Context
 {
+    // get the current block miner’s address.
+    function _coinbase() internal view returns (address payable)
+    {
+        return block.coinbase;
+    }
+
+    // get the current block difficulty.
+    function _difficulty() internal view returns (uint)
+    {
+        return block.prevrandao;
+    }
+
+    // get the current block gaslimit.
+    function _gaslimit() internal view returns (uint)
+    {
+        return block.gaslimit;
+    }
+
+    // get the current block timestamp.
+    function _timestamp() internal view returns (uint)
+    {
+        return block.timestamp;
+    }
+
+    // get the current block number.
+    function _number() internal view returns (uint)
+    {
+        return block.number;
+    }
+
     // sender of the message (current call).
-    function msgSender() internal view returns (address)
+    function _sender() internal view returns (address)
     {
         return msg.sender;
     }
     
     // complete calldata.
-    function msgData() internal pure returns (bytes calldata)
+    function _data() internal pure returns (bytes calldata)
     {
         return msg.data;
     }
     
     // number of wei sent with the message.
-    function msgValue() internal view returns (uint)
+    function _value() internal view returns (uint)
     {
         return msg.value;
     }
