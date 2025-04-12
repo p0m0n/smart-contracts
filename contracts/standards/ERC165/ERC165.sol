@@ -49,13 +49,16 @@ import "./IERC165.sol";
  */
 abstract contract ERC165 is IERC165 
 {
+    // Interface ID ERC-165
+    bytes4 internal constant ERC165ID = type(IERC165).interfaceId;
+
     // Mapping to store supported interface IDs.
     mapping(bytes4 interfaceId => bool) internal _supportedInterfaces;
 
     constructor() 
     {
         // ERC165 interface ID (0x01ffc9a7).
-        _registerInterface(type(IERC165).interfaceId);
+        _registerInterface(ERC165ID);
     }
 
     // Checks if a contract implements the given interface {_interfaceId} if yes then returns true, otherwise false.

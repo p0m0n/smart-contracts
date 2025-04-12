@@ -42,6 +42,9 @@ import "contracts/standards/ERC165/ERC165.sol";
  */
 abstract contract ERC20 is IERC20, Context, ERC165
 {
+    // Interface ID ERC-20
+    bytes4 internal constant ERC20ID = type(IERC20).interfaceId;
+	
     string private mName;                // Token name.
     string private mSymbol;              // Token symbol.
 	
@@ -53,7 +56,7 @@ abstract contract ERC20 is IERC20, Context, ERC165
     constructor(string memory _name, string memory _symbol)
     {
         // ERC20 interface ID (0x942e8b22).
-        super._registerInterface(type(IERC20).interfaceId);
+        super._registerInterface(ERC20ID);
         mName   = _name;
         mSymbol = _symbol;
     }
@@ -126,7 +129,7 @@ abstract contract ERC20 is IERC20, Context, ERC165
     // Checks if a contract implements the given interface {_interfaceId} if yes then returns true, otherwise false.
     function supportsInterface(bytes4 _interfaceId) public view virtual override(ERC165, IERC165) returns (bool) 
     {
-        return _interfaceId == type(IERC20).interfaceId || super.supportsInterface(_interfaceId);
+        return _interfaceId == ERC20ID || super.supportsInterface(_interfaceId);
     }
 
     /*********************************************************************
