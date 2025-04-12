@@ -18,6 +18,7 @@ It is a standard interface for tokens that provides basic functionality for tran
 | `transferFrom(address, address, uint256)` | Transfers tokens from one address to another using permission |
 | `approve(address, uint256)`               | Allows a third party to withdraw tokens from your balance     |
 | `allowance(address, address)`             | Returns the allowed limit for token withdrawals               |
+| `supportsInterface(bytes4)`               | Checks if the contract supports the specified interfaceId     |
 
 ---
 

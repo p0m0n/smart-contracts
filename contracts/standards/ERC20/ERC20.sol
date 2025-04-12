@@ -27,6 +27,7 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import "./IERC20.sol";
 import "contracts/utils/Context.sol";
+import "contracts/standards/ERC165/ERC165.sol";
 
 /*
  * @dev Implementation of the ERC-20 standard. <https://eips.ethereum.org/EIPS/eip-20>
@@ -39,7 +40,7 @@ import "contracts/utils/Context.sol";
  * Motivation:
  *  A standard interface allows any tokens on Ethereum to be re-used by other applications: from wallets to decentralized exchanges.
  */
-abstract contract ERC20 is IERC20, Context
+abstract contract ERC20 is IERC20, Context, ERC165
 {
     string private mName;                // Token name.
     string private mSymbol;              // Token symbol.
@@ -51,6 +52,8 @@ abstract contract ERC20 is IERC20, Context
     // Creates ERC-20 Standard.
     constructor(string memory _name, string memory _symbol)
     {
+        // ERC20 interface ID (0x942e8b22).
+        super._registerInterface(type(IERC20).interfaceId);
         mName   = _name;
         mSymbol = _symbol;
     }
@@ -118,6 +121,12 @@ abstract contract ERC20 is IERC20, Context
     function allowance(address _owner, address _spender) public view virtual returns (uint256)
     {
         return mAllowances[_owner][_spender];
+    }
+
+    // Checks if a contract implements the given interface {_interfaceId} if yes then returns true, otherwise false.
+    function supportsInterface(bytes4 _interfaceId) public view virtual override(ERC165, IERC165) returns (bool) 
+    {
+        return _interfaceId == type(IERC20).interfaceId || super.supportsInterface(_interfaceId);
     }
 
     /*********************************************************************

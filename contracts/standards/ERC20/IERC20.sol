@@ -25,8 +25,11 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 
+import "contracts/standards/ERC165/IERC165.sol";
+
+
  /// @dev Interface of the ERC-20 standard.
-interface IERC20
+interface IERC20 is IERC165
 {   
     // Returns the name of the token - e.g. "MyToken".
     function name() external view returns (string memory);
