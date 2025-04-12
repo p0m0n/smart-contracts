@@ -18,7 +18,6 @@
 | `_sysTimestamp()`  | Block timestamp (`block.timestamp`)                     |
 | `_sysNumber()`     | Block number (`block.number`)                           |
 | `_sysChainId()`    | Current chain ID (`block.chainid`)                      |
-|------------------------------------------------------------------------------|
 
 ---
 

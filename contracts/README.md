@@ -1,3 +1,2 @@
-# Catalog utils.
-**Catalog utils** - it contains various auxiliary utilities
+✅ **utils** - This folder contains various auxiliary utilities.
 ---
