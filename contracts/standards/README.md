@@ -2,3 +2,5 @@
 ---
 ✅ **ERC165** — An implementation of the [EIP-165](https://eips.ethereum.org/EIPS/eip-165) standard that allows a smart contract to declare which interfaces it supports and check for support from other contracts. Used to improve interoperability between contracts and build dynamically extensible systems.
 ---
+✅ **ERC173** — Implementation of the [EIP-165](https://eips.ethereum.org/EIPS/eip-173) Contract Ownership Standard.
+---

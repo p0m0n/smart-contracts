@@ -5,7 +5,7 @@ It is a standard interface for tokens that provides basic functionality for tran
 
 ---
 
-### 🔧 Possibilities `ERC20`
+### 🔧 Possibilities `ERC20`:
 
 | Method                                    | Description                                                   |
 |-------------------------------------------|---------------------------------------------------------------|
