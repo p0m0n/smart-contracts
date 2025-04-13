@@ -4,3 +4,5 @@
 ---
 ✅ **ERC173** — Implementation of the [EIP-165](https://eips.ethereum.org/EIPS/eip-173) Contract Ownership Standard.
 ---
+✅ **ERC5313** — Implementation of the [EIP-5313](https://eips.ethereum.org/EIPS/eip-5313) This is a stripped-down alternative to ERC-173.
+---
