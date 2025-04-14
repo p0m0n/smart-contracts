@@ -38,3 +38,38 @@ contract MyContract is Context {
     }
 } ```
 
+---
+
+# BlackList
+
+**BlackList** — an abstract contract that provides a blacklisting mechanism for addresses.
+
+---
+
+### 🔧 Possibilities `BlackList`:
+
+| Method                        | Description                                    |
+|-------------------------------|------------------------------------------------|
+| `isBlacklist(address)`        | Checks if the specified address is blacklisted |
+| `setBlacklist(address, bool)` | Adds or removes an address from the blacklist  |
+
+---
+
+## ✅ Example of use
+
+```solidity
+pragma solidity ^0.8.20;
+
+import "../utils/BlackList.sol";
+
+contract MyContract is BlackList {
+    function addToBlacklist(address _account) public onlyOwner
+	{
+	    super.setBlacklist(_account, true);
+	}
+	
+	function removeBlacklist(address _account) public onlyOwner
+	{
+	    super.setBlacklist(_account, false);
+	}
+} ```
