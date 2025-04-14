@@ -36,7 +36,8 @@ contract MyContract is Context {
     function getChainInfo() external view returns (uint number, uint chainId) {
         return (_sysNumber(), _sysChainId());
     }
-} ```
+} 
+```
 
 ---
 
@@ -72,4 +73,19 @@ contract MyContract is BlackList {
 	{
 	    super.setBlacklist(_account, false);
 	}
-} ```
+} 
+```
+
+---
+
+# Address
+
+**Address** — Library for working with addresses in Solidity.
+
+---
+
+### 🔧 Possibilities `Address`:
+
+| Method                        | Description                                    |
+|-------------------------------|------------------------------------------------|
+| `isContract(address)`         | Returns true if `address` is a contract       |
